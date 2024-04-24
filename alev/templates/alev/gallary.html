@@ -1,0 +1,52 @@
+{% extends 'alev/baze.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+<div class="modal-body">
+    <form class="callForm callForm1" id="callForm" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.name_form }}
+        {{ form.tel_form }}
+        <div class="modal-footer">
+               <button class="btn-send">Заказать звонок</button>
+        </div>
+
+    </form>
+    </div>
+{% block modal  %}
+<div class="modal-body">
+    <form class="callForm callForm1" id="callForm" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.name_form }}
+        {{ form.tel_form }}
+        <div class="modal-footer">
+               <button class="btn-send">Заказать звонок</button>
+        </div>
+
+    </form>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="page_h1">
+<h1 class="page_rem">Галерея наших работ</h1>
+</div>
+
+
+
+<div class="container-xxl">
+
+<div class="gallery" id="gallery">
+{% for img in image %}
+<div class="gallery_item">
+   <img class="gallery_asset" src="{{ img.img.url }}" alt="{{ img.img.name_object }}">
+</div>
+{% endfor %}
+</div>
+
+
+</div>
+{% endblock %}
